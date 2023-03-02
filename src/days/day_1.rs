@@ -2,12 +2,12 @@ use std::io::{BufReader, BufRead};
 
 use crate::utils;
 
-pub fn calorie_counting() {
+pub fn calorie_counting() -> Option<(i32, i32)> {
     let file = match utils::read_file("day_1_input.txt") {
         Ok(file) => file,
         Err(e) => {
             println!("Couldn't open file {}", e);
-            return;
+            return None;
         }
     };
 
@@ -31,6 +31,5 @@ pub fn calorie_counting() {
     calories.sort();
 
     let len: usize = calories.len();
-    println!("Top three elfs carry in total {} calories.", calories[len - 1] + calories[len -2] + calories[len -3]);
-    println!("The elf with the most calories is carrying {} calories.", calories.last().unwrap());
+    Some((*calories.last().unwrap(), calories[len - 3..].iter().sum()))
 }
