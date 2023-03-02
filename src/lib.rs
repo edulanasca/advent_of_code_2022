@@ -6,12 +6,18 @@ mod tests {
     use crate::days::*;
 
     #[test]
-    fn calorie_counting() {
-        assert_eq!(Some((69693, 200945)), day_1::calorie_counting());
+    fn day_1() {
+        assert_eq!(Some((69693, 200945)), calorie_counting());
     }
 
     #[test]
-    fn rock_paper_scissors() {
-        assert_eq!(Some((11386, 13600)), day_2::rock_paper_scissors());
+    fn day_2() {
+        assert_eq!(Some((11386, 13600)), rock_paper_scissors());
+    }
+
+    #[test]
+    fn day_3() {
+        assert_eq!(Some(7903), rucksack_reorganization());
+        assert_eq!(Some(2548), rucksack_reorganization_badges());
     }
 }
