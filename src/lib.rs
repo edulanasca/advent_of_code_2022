@@ -16,8 +16,20 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
+    fn day_2_fails() {
+        assert_eq!(None, rock_paper_scissors());
+    }
+
+    #[test]
     fn day_3() {
         assert_eq!(Some(7903), rucksack_reorganization());
         assert_eq!(Some(2548), rucksack_reorganization_badges());
     }
+
+    #[test]
+    fn day_4() {
+        assert_eq!(Some((496, 847)), camp_cleanup());
+    }
+
 }

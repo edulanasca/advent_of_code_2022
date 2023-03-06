@@ -1,17 +1,13 @@
-use std::io::{BufReader, BufRead};
+use std::io::{BufRead};
 
-use crate::utils;
+use crate::utils::read_file;
 
 pub fn calorie_counting() -> Option<(i32, i32)> {
-    let file = match utils::read_file("day_1_input.txt") {
-        Ok(file) => file,
-        Err(e) => {
-            println!("Couldn't open file {}", e);
-            return None;
-        }
+    let reader = match read_file("1") {
+        Some(reader) => reader,
+        None => return None
     };
 
-    let reader = BufReader::new(file);
     let mut calories = Vec::new();
     let mut accumulator = 0;
 

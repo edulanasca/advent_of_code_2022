@@ -1,17 +1,13 @@
 use std::collections::HashSet;
-use std::io::{BufRead, BufReader};
-use crate::utils;
+use std::io::{BufRead};
+use crate::utils::read_file;
 
 pub fn rucksack_reorganization() -> Option<i32> {
-    let file = match utils::read_file("day_3_input.txt") {
-        Ok(file) => file,
-        Err(e) => {
-            eprintln!("Couldn't open file {}", e);
-            return None;
-        }
+    let reader = match read_file("3") {
+        Some(reader) => reader,
+        None => return None
     };
 
-    let reader = BufReader::new(file);
     let mut total_priorities = 0;
 
     for line in reader.lines() {
@@ -29,15 +25,11 @@ pub fn rucksack_reorganization() -> Option<i32> {
 }
 
 pub fn rucksack_reorganization_badges() -> Option<i32> {
-    let file = match utils::read_file("day_3_input.txt") {
-        Ok(file) => file,
-        Err(e) => {
-            eprintln!("Couldn't open file {}", e);
-            return None;
-        }
+    let reader = match read_file("3") {
+        Some(reader) => reader,
+        None => return None
     };
 
-    let reader = BufReader::new(file);
     let mut total_badges = 0;
 
     let all_lines = reader.lines().collect::<Vec<_>>();

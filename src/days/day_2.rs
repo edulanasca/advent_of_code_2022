@@ -1,16 +1,12 @@
-use std::io::{BufRead, BufReader};
-use crate::utils;
+use std::io::{BufRead};
+use crate::utils::read_file;
 
 pub fn rock_paper_scissors() -> Option<(i32, i32)> {
-    let file = match utils::read_file("day_2_input.txt") {
-        Ok(file) => file,
-        Err(e) => {
-            println!("Couldn't open file {}", e);
-            return None;
-        }
+    let reader = match read_file("2") {
+        Some(reader) => reader,
+        None => return None
     };
 
-    let reader = BufReader::new(file);
     let mut score_part1 = 0;
     let mut score_part2 = 0;
 
