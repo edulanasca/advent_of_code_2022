@@ -32,4 +32,10 @@ mod tests {
         assert_eq!(Some((496, 847)), camp_cleanup());
     }
 
+    #[test]
+    fn day_5() {
+        assert_eq!(Some(String::from("TDCHVHJTG")), crate_mover_9000());
+        assert_eq!(Some(String::from("NGCMPJLHV")), crate_mover_9001());
+    }
+
 }
